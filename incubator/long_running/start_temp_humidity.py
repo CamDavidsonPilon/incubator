@@ -14,7 +14,6 @@ config.read('config.ini')
 dht22 = DHT22(board.D21)
 sampling_rate = 1/float(config['temp_humidity']['samples_per_second'])
 hostname = config['mqtt']['hostname']
-port = config['mqtt']['port']
 
 
 while True:
