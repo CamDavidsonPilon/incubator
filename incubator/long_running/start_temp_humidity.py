@@ -20,7 +20,7 @@ while True:
     time.sleep(sampling_rate)
     try:
         h, t = dht22.humidity, dht22.temperature
-        publish.single("incubator/humidity", h, hostname=hostname, port=port)
-        publish.single("incubator/temperature", t, hostname=hostname, port=port)
+        publish.single("incubator/humidity", h, hostname=hostname)
+        publish.single("incubator/temperature", t, hostname=hostname)
     except (RuntimeError, OverflowError) as error:
        print(error.args[0])
