@@ -1,0 +1,7 @@
+click
+picamera
+gpio
+paho-mqtt
+RPi.GPIO
+adafruit-blinka
+adafruit-circuitpython-bme280

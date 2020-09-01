@@ -26,6 +26,9 @@ while True:
         h, t = bme280.humidity, bme280.temperature
         publish.single("incubator/1/humidity", h, hostname=hostname)
         publish.single("incubator/1/temperature", t, hostname=hostname)
-    except (RuntimeError, OverflowError) as error:
-        print(error.args[0])
+    except (RuntimeError, OverflowError, OSError) as error:
+        publish.single("incubator/1/error_log", f"start_temp_humidity.py failed: {str(e)}", hostname=hostname)
+        time.sleep(5)
 
+        i2c = busio.I2C(board.SCL, board.SDA)
+        bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
