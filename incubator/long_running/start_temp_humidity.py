@@ -26,7 +26,7 @@ while True:
         h, t = bme280.humidity, bme280.temperature
         publish.single("incubator/1/humidity", h, hostname=hostname)
         publish.single("incubator/1/temperature", t, hostname=hostname)
-    except (RuntimeError, OverflowError, OSError) as error:
+    except (RuntimeError, OverflowError, OSError) as e:
         publish.single("incubator/1/error_log", f"start_temp_humidity.py failed: {str(e)}", hostname=hostname)
         time.sleep(5)
 
