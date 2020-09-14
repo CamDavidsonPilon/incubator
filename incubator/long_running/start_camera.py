@@ -12,7 +12,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 sampling_rate = 1/float(config['camera']['samples_per_second'])
-hostname = config['mqtt']['hostname']
+hostname = config['network']['leader_hostname']
 camera = PiCamera()
 publish.single("incubator/1/log", "start_camera started", hostname=hostname)
 

@@ -16,7 +16,7 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 sampling_rate = 1/float(config['temp_humidity']['samples_per_second'])
-hostname = config['mqtt']['hostname']
+hostname = config['network']['leader_hostname']
 publish.single("incubator/1/log", "start_temp_humidity started", hostname=hostname)
 
 
